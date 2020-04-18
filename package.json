@@ -1,0 +1,15 @@
+{
+  "name": "pvisual",
+  "version": "1.0.0",
+  "description": "Instalasi",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "sipyit",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.0.2",
+    "uuid-js": "^0.7.5"
+  }
+}

@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+
+    <body style="background-color: darkgoldenrod;">
+        <h3 style="color: black;">Form penyewaan</h3>
+        <form id="form">
+            <label for="name" style="color:black;">Nama:</label><br />
+            <input type="text" name="name" required />
+            <br /><br />
+            <label for="number" style="color: black;">Nomer Hp:</label><br />
+            <input type="number" name="number" required />
+            <br /><br />
+            <label for="date" style="color:black;">Tanggal Ambil:</label><br />
+            <input type="date" name="date" placeholder="YYYY-MM-DD" required />
+            <br /><br />
+            <label for="hour" style="color:black;">Jam Ambil:</label><br />
+            <input type="text" name="hour" placeholder="HH:MM" required />
+            <br /><br />
+            <label for="address" style="color:black;">Alamat:</label><br />
+            <input type="text" name="address" placeholder="" required />
+            <br /><br />
+            <label for="type" style="color:black;">Type Mobil yang akan Disewa:</label><br />
+            <input type="text" name="type" placeholder="" required />
+            <br /><br />
+            <input type="submit" />
+        </form>
+        
+        <script>
+            const electron = require("electron");
+            const {
+                ipcRenderer
+            } = electron;
+
+            const form = document.getElementById("form");
+            const elements = {};
+
+            form.addEventListener("submit", event => {
+                event.preventDefault();
+
+                for (let i = 0; i < form.elements.length; i++) {
+                    if (form.elements[i]. type !== "submit")
+                    elements[form.elements[i].name] = form.elements[i].value;
+                }
+
+                ipcRenderer.send("appointment:create", elements);
+            });
+        </script>
+    </body>
+</html>
