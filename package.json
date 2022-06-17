@@ -9,7 +9,7 @@
   "author": "sipyit",
   "license": "ISC",
   "dependencies": {
-    "electron": "^8.0.2",
+    "electron": "^15.5.5",
     "uuid-js": "^0.7.5"
   }
 }
